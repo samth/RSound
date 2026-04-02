@@ -1,22 +1,22 @@
 #lang setup/infotab
 
-(define name "RSound")
+(define collection 'multi)
 
-(define blurb '((p "RSound provides a framework for manipulating "
-                   "and playing sounds using the portaudio "
-                   "library. It runs on Windows, Mac OS X, and "
-                   "linux.")))
-
-(define scribblings '(("rsound.scrbl" () (gui-library))))
-(define categories '(media))
-
-;; don't compile the stuff in the contrib subdirectory.
-(define compile-omit-paths '("contrib"))
-;; things written in non-module languages can't easily be
-;; eliminated from testing.
-(define test-omit-paths '("examples/katy-sliders.rkt"
-                          "examples/markov-model.rkt"))
-;; in order to add a sample-rate pref, we need to be a tool:
-(define drracket-name "RSound")
-(define drracket-tools (list (list "tool.rkt")))
-
+(define deps (list (list "portaudio" "0.1") 
+                   "base"
+                   "data-lib"
+                   "gui-lib"
+                   "htdp-lib"
+                   "math-lib"
+                   "plot-lib"
+                   "plot-gui-lib"
+                   "rackunit-lib"
+                   "typed-racket-lib"
+                   "drracket-plugin-lib"
+                   "memoize"
+                   "pict-lib"
+                   "wxme-lib"
+                   "snip-lib"))
+(define build-deps (list "scribble-lib"
+                         "racket-doc"
+                         "wxme-lib"))
